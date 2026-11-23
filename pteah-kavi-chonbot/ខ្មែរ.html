@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ផ្ទះ កវីជនបទ — បណ្ណាគារ និងស្នាដៃអក្សរសាស្ត្រខ្មែរ</title>
+  <!-- Load Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Load Google Fonts: Battambang, Kantumruy Pro, and Moul for authentic Khmer typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Kantumruy+Pro:wght@400;500;600;700&family=Moul&display=swap"
+    rel="stylesheet"
+  />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Kantumruy Pro"', '"Battambang"', 'sans-serif'],
+            serif: ['"Battambang"', '"Kantumruy Pro"', 'serif'],
+            display: ['"Moul"', '"Battambang"', 'serif'],
+          },
+          colors: {
+            store: {
+              cream: '#FDFBF7',
+              card: '#FFFFFF',
+              soft: '#F5EFE6',
+              ink: '#1E293B',
+              muted: '#64748B',
+              amber: '#B45309',
+              amberLight: '#FEF3C7',
+              emerald: '#047857',
+              gold: '#D97706',
+              border: '#EAE2D6',
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html,
+    body {
+      background-color: #f1ebe1;
+      color: #1e293b;
+      font-family: 'Kantumruy Pro', 'Battambang', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .font-moul {
+      font-family: 'Moul', 'Battambang', serif;
+      line-height: 1.65;
+    }
+
+    .font-battambang {
+      font-family: 'Battambang', 'Kantumruy Pro', serif;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    @keyframes slideUpSheet {
+      from {
+        transform: translateY(100%);
+        opacity: 0.85;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .animate-sheet {
+      animation: slideUpSheet 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Realistic book spine shadow */
+    .book-cover-frame {
+      box-shadow:
+        inset 4px 0 8px rgba(255, 255, 255, 0.22),
+        inset -2px 0 6px rgba(0, 0, 0, 0.2),
+        0 8px 16px -6px rgba(30, 41, 59, 0.25);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex justify-center items-stretch sm:py-4">
+  <!-- Mobile App Shell (Full-width on mobile, centered sleek mobile frame on desktop) -->
+  <div
+    id="app-shell"
+    class="w-full max-w-md bg-store-cream min-h-screen sm:min-h-[860px] sm:max-h-[92vh] sm:rounded-[2.25rem] shadow-2xl border border-store-border flex flex-col relative overflow-hidden"
+  >
+    <!-- ==================== 1. HEADER & BRANDING ==================== -->
+    <header class="sticky top-0 z-20 bg-store-card/95 backdrop-blur border-b border-store-border px-4 py-3 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5 min-w-0">
+        <!-- Custom Book & Feather Pen Emblem -->
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-700 via-amber-800 to-stone-900 text-amber-50 flex items-center justify-center shadow-sm shrink-0 border border-amber-500/30">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+            <path d="M15.5 6.5c-2.5.5-4.5 2.5-5 5l3.5-.5c2.2-.5 3.8-2.2 4-4.5-.8-.2-1.7-.2-2.5 0z" />
+            <path d="M9.5 13.5 13 10" />
+          </svg>
+        </div>
+        <div class="min-w-0">
+          <h1 class="font-moul text-sm sm:text-[15px] text-amber-900 truncate">ផ្ទះ កវីជនបទ</h1>
+          <p class="text-[11px] text-store-muted truncate">បណ្ណាគារ និងស្នាដៃអក្សរសាស្ត្រខ្មែរ</p>
+        </div>
+      </div>
+
+      <!-- Quick Cart Badge Button -->
+      <button
+        id="header-cart-btn"
+        type="button"
+        aria-label="បើកកន្ត្រកទំនិញ"
+        class="relative p-2.5 rounded-2xl bg-store-soft hover:bg-amber-100 text-amber-900 border border-store-border transition active:scale-95 shrink-0"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="8" cy="21" r="1" />
+          <circle cx="19" cy="21" r="1" />
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+        </svg>
+        <span
+          id="header-cart-badge"
+          class="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-amber-700 text-white text-[10px] font-bold flex items-center justify-center shadow"
+        >
+          0
+        </span>
+      </button>
+    </header>
+
+    <!-- ==================== MAIN SCROLLABLE VIEWPORT ==================== -->
+    <main id="main-viewport" class="flex-1 overflow-y-auto px-4 pt-3.5 pb-24 space-y-4 no-scrollbar">
+      <!-- ==================== TAB 1: ហាងសៀវភៅ (SHOP / CATALOG) ==================== -->
+      <section id="view-shop" class="space-y-4">
+        <!-- Real-Time Search Bar -->
+        <div class="relative">
+          <span class="absolute inset-y-0 left-3.5 flex items-center text-store-muted pointer-events-none">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </span>
+          <input
+            id="shop-search-input"
+            type="search"
+            placeholder="ស្វែងរកចំណងជើងសៀវភៅ ឬអ្នកនិពន្ធ..."
+            class="w-full pl-10 pr-9 py-2.5 rounded-2xl bg-store-card border border-store-border text-sm text-store-ink placeholder:text-store-muted/75 focus:outline-none focus:ring-2 focus:ring-amber-600/35 focus:border-amber-700 transition"
+          />
+          <button
+            id="shop-clear-search"
+            type="button"
+            class="hidden absolute inset-y-0 right-2.5 px-2 text-xs text-store-muted hover:text-store-ink"
+            aria-label="សម្អាតការស្វែងរក"
+          >
+            ✕
+          </button>
+        </div>
+
+        <!-- Horizontal Scrollable Category Filter Pills -->
+        <div id="category-pills" class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+          <button type="button" data-cat="ទាំងអស់" class="cat-pill px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-amber-700 text-white shadow-xs transition active:scale-95">
+            ទាំងអស់
+          </button>
+          <button type="button" data-cat="អក្សរសាស្ត្រខ្មែរ" class="cat-pill px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-store-card text-store-muted border border-store-border hover:bg-store-soft transition active:scale-95">
+            អក្សរសាស្ត្រខ្មែរ
+          </button>
+          <button type="button" data-cat="ប្រវត្តិសាស្ត្រ" class="cat-pill px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-store-card text-store-muted border border-store-border hover:bg-store-soft transition active:scale-95">
+            ប្រវត្តិសាស្ត្រ
+          </button>
+          <button type="button" data-cat="តែងសេចក្តី" class="cat-pill px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-store-card text-store-muted border border-store-border hover:bg-store-soft transition active:scale-95">
+            តែងសេចក្តី
+          </button>
+          <button type="button" data-cat="រឿងមនោសញ្ចេតនា" class="cat-pill px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-store-card text-store-muted border border-store-border hover:bg-store-soft transition active:scale-95">
+            រឿងមនោសញ្ចេតនា
+          </button>
+          <button type="button" data-cat="ត្រៀមប្រឡងបាក់ឌុប" class="cat-pill px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-store-card text-store-muted border border-store-border hover:bg-store-soft transition active:scale-95">
+            ត្រៀមប្រឡងបាក់ឌុប
+          </button>
+        </div>
+
+        <!-- Featured Student Promo Banner -->
+        <div class="rounded-3xl bg-gradient-to-br from-amber-800 via-amber-700 to-emerald-900 text-amber-50 p-4 shadow-md relative overflow-hidden">
+          <div class="relative z-10 space-y-1.5">
+            <div class="flex items-center justify-between gap-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-amber-300/20 border border-amber-200/30 text-amber-100 text-[10px] font-bold">
+                🎁 កូដបញ្ចុះតម្លៃ៖ MEYNA15
+              </span>
+              <span class="text-[11px] text-emerald-200 font-semibold">ដឹកជញ្ជូនឥតគិតថ្លៃភ្នំពេញ</span>
+            </div>
+            <p class="text-xs sm:text-[13px] font-semibold leading-relaxed text-white">
+              ប្រូម៉ូសិនពិសេសសម្រាប់សិស្ស-និស្សិត! បញ្ចុះតម្លៃ 15% និងដឹកជញ្ជូនឥតគិតថ្លៃក្នុងរាជធានីភ្នំពេញសម្រាប់ការទិញចាប់ពី ២ ក្បាលឡើងទៅ
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <button
+                id="apply-banner-promo-btn"
+                type="button"
+                class="px-3 py-1.5 rounded-xl bg-amber-50 text-amber-950 text-[11px] font-bold hover:bg-white transition active:scale-95"
+              >
+                ប្រើកូដ MEYNA15 ឥឡូវនេះ
+              </button>
+            </div>
+          </div>
+          <!-- Decorative subtle watermark lotus/sun -->
+          <div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-amber-400/15 pointer-events-none"></div>
+        </div>
+
+        <!-- Catalog Header -->
+        <div class="flex items-center justify-between">
+          <h2 id="catalog-heading" class="text-sm font-bold text-store-ink">បញ្ជីសៀវភៅទាំងអស់</h2>
+          <span id="catalog-count" class="text-xs text-store-muted">៨ ក្បាល</span>
+        </div>
+
+        <!-- 2-Column Book Grid -->
+        <div id="books-grid" class="grid grid-cols-2 gap-3"></div>
+
+        <!-- Empty Search Fallback -->
+        <div
+          id="shop-empty-state"
+          class="hidden text-center py-10 px-4 rounded-3xl bg-store-card border border-store-border space-y-2"
+        >
+          <p class="text-2xl">📚</p>
+          <p class="text-sm font-bold text-store-ink">រកមិនឃើញសៀវភៅដែលអ្នកស្វែងរកទេ</p>
+          <p class="text-xs text-store-muted">សូមសាកល្បងពាក្យគន្លឹះផ្សេង ឬជ្រើសប្រភេទ «ទាំងអស់»។</p>
+          <button
+            id="shop-reset-btn"
+            type="button"
+            class="mt-1 px-4 py-2 rounded-xl bg-amber-700 text-white text-xs font-semibold hover:bg-amber-800 transition"
+          >
+            បង្ហាញសៀវភៅទាំងអស់
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 2: កន្ត្រកទំនិញ (CART & CHECKOUT) ==================== -->
+      <section id="view-cart" class="hidden space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-base font-bold text-store-ink">កន្ត្រកទំនិញរបស់អ្នក</h2>
+            <p class="text-xs text-store-muted">ពិនិត្យចំនួនសៀវភៅ និងបំពេញព័ត៌មានដឹកជញ្ជូន</p>
+          </div>
+          <button
+            id="clear-cart-btn"
+            type="button"
+            class="hidden text-xs font-semibold text-rose-600 hover:text-rose-700 px-2.5 py-1.5 rounded-xl bg-rose-50 transition"
+          >
+            សម្អាតកន្ត្រក
+          </button>
+        </div>
+
+        <!-- Empty Cart State -->
+        <div
+          id="cart-empty-state"
+          class="text-center py-12 px-5 rounded-3xl bg-store-card border border-store-border space-y-3"
+        >
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mx-auto text-2xl">
+            🛒
+          </div>
+          <p class="text-sm font-bold text-store-ink">កន្ត្រកទំនិញរបស់អ្នកនៅទទេនៅឡើយ</p>
+          <p class="text-xs text-store-muted leading-relaxed">
+            សូមជ្រើសរើសសៀវភៅអក្សរសាស្ត្រ តែងសេចក្តី ឬរឿងប្រលោមលោកដែលអ្នកពេញចិត្តពីហាងសៀវភៅ។
+          </p>
+          <button
+            id="cart-go-shop-btn"
+            type="button"
+            class="px-5 py-2.5 rounded-2xl bg-amber-700 hover:bg-amber-800 text-white text-xs font-bold transition active:scale-95"
+          >
+            ទៅជ្រើសរើសសៀវភៅ
+          </button>
+        </div>
+
+        <!-- Populated Cart & Checkout Container -->
+        <div id="cart-content-wrapper" class="hidden space-y-4">
+          <!-- Cart Items List -->
+          <div id="cart-items-list" class="space-y-2.5"></div>
+
+          <!-- Delivery Zone Selector -->
+          <div class="rounded-3xl bg-store-card border border-store-border p-4 space-y-2.5">
+            <h3 class="text-xs font-bold text-store-ink flex items-center gap-1.5">
+              <span>🚚</span>
+              <span>តំបន់ដឹកជញ្ជូន (Delivery Zone)</span>
+            </h3>
+            <div class="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                data-zone="phnom_penh"
+                class="zone-btn p-3 rounded-2xl border-2 border-amber-700 bg-amber-50/70 text-left transition active:scale-98"
+              >
+                <p class="text-xs font-bold text-store-ink">រាជធានីភ្នំពេញ</p>
+                <p id="pp-fee-hint" class="text-[11px] text-emerald-700 font-semibold mt-0.5">$1.50 (ឥតគិតថ្លៃ ≥ ២ ក្បាល)</p>
+              </button>
+              <button
+                type="button"
+                data-zone="province"
+                class="zone-btn p-3 rounded-2xl border border-store-border bg-store-cream text-left transition active:scale-98"
+              >
+                <p class="text-xs font-bold text-store-ink">តាមបណ្តាខេត្ត</p>
+                <p class="text-[11px] text-store-muted font-medium mt-0.5">$2.00 (៨,០០០៛)</p>
+              </button>
+            </div>
+          </div>
+
+          <!-- Promo Code Input -->
+          <div class="rounded-3xl bg-store-card border border-store-border p-4 space-y-2">
+            <label for="promo-input" class="text-xs font-bold text-store-ink flex items-center justify-between">
+              <span>🎟️ កូដបញ្ចុះតម្លៃ (Promo Code)</span>
+              <span class="text-[11px] font-normal text-amber-800">សាកល្បង៖ MEYNA15</span>
+            </label>
+            <div class="flex gap-2">
+              <input
+                id="promo-input"
+                type="text"
+                placeholder="បញ្ចូលកូដ (ឧ. MEYNA15)"
+                class="flex-1 px-3.5 py-2 rounded-xl bg-store-cream border border-store-border text-xs uppercase font-semibold text-store-ink focus:outline-none focus:border-amber-700"
+              />
+              <button
+                id="apply-promo-btn"
+                type="button"
+                class="px-4 py-2 rounded-xl bg-amber-700 hover:bg-amber-800 text-white text-xs font-bold transition active:scale-95"
+              >
+                ប្រើកូដ
+              </button>
+            </div>
+            <p id="promo-status-msg" class="hidden text-[11px] font-semibold text-emerald-700"></p>
+          </div>
+
+          <!-- Price Breakdown Summary (USD + KHR 1 USD = 4,000 KHR) -->
+          <div class="rounded-3xl bg-store-card border border-store-border p-4 space-y-2 text-xs">
+            <div class="flex justify-between text-store-muted">
+              <span>តម្លៃសៀវភៅសរុប (<span id="summary-book-qty">0</span> ក្បាល)</span>
+              <span id="summary-subtotal" class="font-semibold text-store-ink">$0.00</span>
+            </div>
+            <div class="flex justify-between text-store-muted">
+              <span>ថ្លៃសេវាដឹកជញ្ជូន</span>
+              <span id="summary-delivery" class="font-semibold text-store-ink">$1.50</span>
+            </div>
+            <div id="summary-discount-row" class="hidden flex justify-between text-emerald-700 font-semibold">
+              <span>បញ្ចុះតម្លៃ (15% - MEYNA15)</span>
+              <span id="summary-discount">-$0.00</span>
+            </div>
+            <div class="pt-2.5 border-t border-store-border flex items-baseline justify-between">
+              <span class="text-sm font-bold text-store-ink">ទឹកប្រាក់សរុបត្រូវទូទាត់</span>
+              <div class="text-right">
+                <p id="summary-total-usd" class="text-base font-bold text-amber-800">$0.00</p>
+                <p id="summary-total-khr" class="text-xs font-semibold text-emerald-800">0៛</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Customer Checkout Form -->
+          <form id="checkout-form" class="rounded-3xl bg-store-card border border-store-border p-4 space-y-3">
+            <h3 class="text-sm font-bold text-store-ink">📋 ព័ត៌មានអតិថិជន និងការទូទាត់</h3>
+
+            <div>
+              <label for="cust-name" class="block text-xs font-semibold text-store-ink mb-1">ឈ្មោះអតិថិជន *</label>
+              <input
+                id="cust-name"
+                type="text"
+                required
+                placeholder="បញ្ចូលឈ្មោះរបស់អ្នក..."
+                class="w-full px-3.5 py-2.5 rounded-xl bg-store-cream border border-store-border text-xs text-store-ink focus:outline-none focus:border-amber-700"
+              />
+            </div>
+
+            <div>
+              <label for="cust-phone" class="block text-xs font-semibold text-store-ink mb-1">លេខទូរស័ព្ទទំនាក់ទំនង *</label>
+              <input
+                id="cust-phone"
+                type="tel"
+                required
+                placeholder="ឧ. 012 345 678 / 076 200 3636"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-store-cream border border-store-border text-xs text-store-ink focus:outline-none focus:border-amber-700"
+              />
+            </div>
+
+            <div>
+              <label for="cust-address" class="block text-xs font-semibold text-store-ink mb-1">អាសយដ្ឋានដឹកជញ្ជូន *</label>
+              <textarea
+                id="cust-address"
+                rows="2"
+                required
+                placeholder="ផ្ទះលេខ ផ្លូវ សង្កាត់ ខណ្ឌ ឬទីតាំងផ្ញើតាមក្រុមហ៊ុនដឹកជញ្ជូន..."
+                class="w-full px-3.5 py-2 rounded-xl bg-store-cream border border-store-border text-xs text-store-ink focus:outline-none focus:border-amber-700"
+              ></textarea>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-store-ink mb-1.5">វិធីសាស្ត្រទូទាត់ប្រាក់</label>
+              <div class="grid grid-cols-3 gap-1.5">
+                <label class="cursor-pointer">
+                  <input type="radio" name="paymentMethod" value="ABA KHQR" checked class="peer sr-only" />
+                  <div class="p-2 rounded-xl border border-store-border bg-store-cream text-center text-[11px] font-semibold peer-checked:border-amber-700 peer-checked:bg-amber-50 peer-checked:text-amber-900 transition">
+                    ABA KHQR
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="paymentMethod" value="ACLEDA" class="peer sr-only" />
+                  <div class="p-2 rounded-xl border border-store-border bg-store-cream text-center text-[11px] font-semibold peer-checked:border-amber-700 peer-checked:bg-amber-50 peer-checked:text-amber-900 transition">
+                    ACLEDA
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="paymentMethod" value="ទូទាត់ពេលទទួលទំនិញ (COD)" class="peer sr-only" />
+                  <div class="p-2 rounded-xl border border-store-border bg-store-cream text-center text-[11px] font-semibold peer-checked:border-amber-700 peer-checked:bg-amber-50 peer-checked:text-amber-900 transition">
+                    ទូទាត់ COD
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-amber-700 to-amber-800 hover:from-amber-800 hover:to-amber-900 text-white text-xs sm:text-sm font-bold shadow-md transition active:scale-98 flex items-center justify-center gap-2"
+            >
+              <span>បញ្ជាទិញឥឡូវនេះ (Order via Telegram / Confirm)</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Generated Khmer Receipt Modal/Card after Checkout -->
+        <div
+          id="order-receipt-card"
+          class="hidden rounded-3xl bg-emerald-50 border-2 border-emerald-600/40 p-4 space-y-3 shadow-sm"
+        >
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-full bg-emerald-700 text-white text-[11px] font-bold">
+              ✅ បញ្ជាទិញបានជោគជ័យ!
+            </span>
+            <span id="receipt-order-id" class="text-xs font-mono font-bold text-emerald-900"></span>
+          </div>
+          <p class="text-xs text-emerald-950 leading-relaxed">
+            សូមអរគុណ! ការបញ្ជាទិញរបស់អ្នកត្រូវបានរក្សាទុកក្នុងប្រវត្តិទិញ។ សូមចុចប៊ូតុងខាងក្រោមដើម្បីផ្ញើវិក្កយបត្រទៅកាន់ Telegram របស់បណ្ណាគារ <strong>ផ្ទះ កវីជនបទ</strong> ដើម្បីបញ្ជាក់ការដឹកជញ្ជូនភ្លាមៗ។
+          </p>
+          <pre
+            id="receipt-summary-text"
+            class="p-3 rounded-2xl bg-white border border-emerald-200 text-[11px] text-store-ink whitespace-pre-wrap font-sans leading-relaxed"
+          ></pre>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <a
+              id="receipt-telegram-link"
+              href="https://t.me/HengMeyna_RRP"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="py-2.5 px-3 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold text-center flex items-center justify-center gap-1.5 transition"
+            >
+              <span>✈️ ផ្ញើទៅ Telegram ឥឡូវនេះ</span>
+            </a>
+            <button
+              id="copy-receipt-btn"
+              type="button"
+              class="py-2.5 px-3 rounded-xl bg-white hover:bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-bold transition"
+            >
+              📋 ចម្លងវិក្កយបត្រ
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 3: ចំណូលចិត្ត និងប្រវត្តិទិញ (WISHLIST & ORDERS) ==================== -->
+      <section id="view-saved" class="hidden space-y-4">
+        <!-- Sub-tabs Switcher -->
+        <div class="grid grid-cols-2 gap-1.5 p-1 rounded-2xl bg-store-soft border border-store-border">
+          <button
+            id="subtab-wishlist-btn"
+            type="button"
+            class="py-2 px-3 rounded-xl bg-store-card text-amber-900 text-xs font-bold shadow-2xs transition"
+          >
+            ❤️ សៀវភៅដែលពេញចិត្ត (<span id="wishlist-tab-count">0</span>)
+          </button>
+          <button
+            id="subtab-orders-btn"
+            type="button"
+            class="py-2 px-3 rounded-xl text-store-muted text-xs font-semibold transition"
+          >
+            📦 ប្រវត្តិការបញ្ជាទិញ (<span id="orders-tab-count">0</span>)
+          </button>
+        </div>
+
+        <!-- Sub-tab 1: Wishlist -->
+        <div id="subview-wishlist" class="space-y-3">
+          <div id="wishlist-grid" class="grid grid-cols-2 gap-3"></div>
+          <div
+            id="wishlist-empty-state"
+            class="text-center py-12 px-5 rounded-3xl bg-store-card border border-store-border space-y-2.5"
+          >
+            <p class="text-2xl">🤍</p>
+            <p class="text-sm font-bold text-store-ink">មិនទាន់មានសៀវភៅក្នុងបញ្ជីពេញចិត្តទេ</p>
+            <p class="text-xs text-store-muted">ចុចរូបបេះដូងលើសៀវភៅណាមួយ ដើម្បីរក្សាទុកមើលពេលក្រោយ។</p>
+          </div>
+        </div>
+
+        <!-- Sub-tab 2: Placed Orders -->
+        <div id="subview-orders" class="hidden space-y-3">
+          <div id="orders-list" class="space-y-3"></div>
+          <div
+            id="orders-empty-state"
+            class="text-center py-12 px-5 rounded-3xl bg-store-card border border-store-border space-y-2.5"
+          >
+            <p class="text-2xl">📦</p>
+            <p class="text-sm font-bold text-store-ink">មិនទាន់មានប្រវត្តិការបញ្ជាទិញនៅឡើយទេ</p>
+            <p class="text-xs text-store-muted">រាល់ការបញ្ជាទិញរបស់អ្នកនឹងបង្ហាញនៅទីនេះដោយស្វ័យប្រវត្តិ។</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TAB 4: អំពីហាង (ABOUT & CONTACT) ==================== -->
+      <section id="view-about" class="hidden space-y-4">
+        <!-- Bookstore & Founder Card -->
+        <div class="rounded-3xl bg-store-card border border-store-border p-5 shadow-2xs space-y-3.5">
+          <div class="flex items-center gap-3.5">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-700 to-stone-900 text-amber-50 flex items-center justify-center font-moul text-lg shadow-sm shrink-0">
+              ផ្ទះ
+            </div>
+            <div>
+              <h2 class="font-moul text-base text-amber-900">ផ្ទះ កវីជនបទ</h2>
+              <p class="text-xs font-semibold text-emerald-800 mt-0.5">បណ្ណាគារ និងគ្រឹះស្ថានផ្សព្វផ្សាយអក្សរសាស្ត្រខ្មែរ</p>
+              <p class="text-[11px] text-store-muted mt-0.5">📍 រាជធានីភ្នំពេញ, ព្រះរាជាណាចក្រកម្ពុជា</p>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-store-soft/80 border border-store-border space-y-1">
+            <p class="text-xs font-bold text-store-ink">ស្ថាបនិក និងអ្នកនិពន្ធ៖ ហេង ម៉ីណា (ស្មេរម៉ីណា)</p>
+            <p class="text-xs text-store-muted leading-relaxed">
+              «ផ្ទះ កវីជនបទ» បង្កើតឡើងក្នុងគោលបំណងលើកកម្ពស់ការអាន ការតែងនិពន្ធ និងផ្គត់ផ្គង់សៀវភៅអក្សរសាស្ត្រខ្មែរ កំណាព្យ ប្រវត្តិសាស្ត្រ និងឯកសារត្រៀមប្រឡងបាក់ឌុបប្រកបដោយគុណភាពជូនដល់សិស្ស-និស្សិត និងមិត្តអ្នកអានទូទាំងប្រទេស។
+            </p>
+          </div>
+
+          <!-- Direct Contact Buttons -->
+          <div class="space-y-2 pt-1">
+            <h3 class="text-xs font-bold text-store-ink">📞 ទំនាក់ទំនងបណ្ណាគារផ្ទាល់</h3>
+
+            <a
+              href="https://t.me/HengMeyna_RRP"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full py-2.5 px-3.5 rounded-2xl bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-900 text-xs font-bold flex items-center justify-between transition"
+            >
+              <span class="flex items-center gap-2">
+                <span class="text-base">✈️</span>
+                <span>Telegram: @HengMeyna_RRP</span>
+              </span>
+              <span class="text-[11px] text-sky-700">ឆាតផ្ទាល់ →</span>
+            </a>
+
+            <a
+              href="tel:0762003636"
+              class="w-full py-2.5 px-3.5 rounded-2xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-900 text-xs font-bold flex items-center justify-between transition"
+            >
+              <span class="flex items-center gap-2">
+                <span class="text-base">📱</span>
+                <span>ទូរស័ព្ទ: 076 200 3636</span>
+              </span>
+              <span class="text-[11px] text-emerald-700">ហៅឥឡូវ →</span>
+            </a>
+
+            <a
+              href="mailto:Hengmeyna56@gmail.com"
+              class="w-full py-2.5 px-3.5 rounded-2xl bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-950 text-xs font-bold flex items-center justify-between transition"
+            >
+              <span class="flex items-center gap-2">
+                <span class="text-base">✉️</span>
+                <span>Email: Hengmeyna56@gmail.com</span>
+              </span>
+              <span class="text-[11px] text-amber-800">ផ្ញើអ៊ីមែល →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Home Screen Installation Guide Card -->
+        <div class="rounded-3xl bg-amber-50/90 border border-amber-200 p-4 space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="w-8 h-8 rounded-xl bg-amber-700 text-white flex items-center justify-center text-sm">📲</span>
+            <div>
+              <h3 class="text-xs font-bold text-store-ink">របៀបដំឡើង «ផ្ទះ កវីជនបទ» លើអេក្រង់ទូរស័ព្ទ</h3>
+              <p class="text-[11px] text-store-muted">ប្រើប្រាស់ងាយស្រួលដូច App ពិតៗ</p>
+            </div>
+          </div>
+          <ul class="text-xs text-store-ink/90 space-y-1.5 leading-relaxed">
+            <li>• <strong>iPhone (Safari):</strong> ចុចប៊ូតុង Share (<span class="font-mono">⎋</span>) ខាងក្រោម រួចជ្រើសយក <strong>«Add to Home Screen»</strong>។</li>
+            <li>• <strong>Android (Chrome):</strong> ចុចសញ្ញាចំណុចបី (<strong>⋮</strong>) ខាងលើស្តាំ រួចជ្រើសយក <strong>«Add to Home screen»</strong> ឬ <strong>«Install app»</strong>។</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== 2. BOTTOM NAVIGATION BAR (4 TABS) ==================== -->
+    <nav
+      aria-label="របាររុករកខាងក្រោម"
+      class="fixed sm:absolute bottom-0 inset-x-0 z-20 bg-store-card/95 backdrop-blur border-t border-store-border px-1.5 py-1.5 grid grid-cols-4 gap-1"
+    >
+      <button
+        type="button"
+        data-nav="shop"
+        class="bottom-nav-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl text-amber-800 bg-amber-100/75 font-bold transition active:scale-95"
+      >
+        <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+        </svg>
+        <span class="text-[10px] leading-tight">ហាងសៀវភៅ</span>
+      </button>
+
+      <button
+        type="button"
+        data-nav="cart"
+        class="bottom-nav-btn relative flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl text-store-muted hover:text-store-ink font-medium transition active:scale-95"
+      >
+        <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="8" cy="21" r="1" />
+          <circle cx="19" cy="21" r="1" />
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+        </svg>
+        <span class="text-[10px] leading-tight">កន្ត្រកទំនិញ</span>
+        <span
+          id="nav-cart-badge"
+          class="hidden absolute top-1 right-4 min-w-[16px] h-4 px-1 rounded-full bg-amber-700 text-white text-[9px] font-bold flex items-center justify-center"
+        >
+          0
+        </span>
+      </button>
+
+      <button
+        type="button"
+        data-nav="saved"
+        class="bottom-nav-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl text-store-muted hover:text-store-ink font-medium transition active:scale-95"
+      >
+        <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+        </svg>
+        <span class="text-[10px] leading-tight">ប្រវត្តិ / ចូលចិត្ត</span>
+      </button>
+
+      <button
+        type="button"
+        data-nav="about"
+        class="bottom-nav-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl text-store-muted hover:text-store-ink font-medium transition active:scale-95"
+      >
+        <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        <span class="text-[10px] leading-tight">អំពីហាង</span>
+      </button>
+    </nav>
+
+    <!-- ==================== BOOK DETAIL BOTTOM SHEET MODAL ==================== -->
+    <div
+      id="book-modal-backdrop"
+      class="hidden fixed sm:absolute inset-0 z-40 bg-slate-950/55 backdrop-blur-xs flex items-end justify-center"
+    >
+      <div
+        id="book-detail-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-book-title"
+        class="w-full max-h-[90%] bg-store-cream rounded-t-[2rem] border-t border-store-border shadow-2xl flex flex-col animate-sheet overflow-hidden"
+      >
+        <!-- Drag Handle & Close Header -->
+        <div class="px-4 pt-3 pb-2 bg-store-card border-b border-store-border flex items-center justify-between shrink-0">
+          <div class="w-8"></div>
+          <div class="w-10 h-1.5 rounded-full bg-stone-300"></div>
+          <button
+            id="close-book-modal-btn"
+            type="button"
+            aria-label="បិទផ្ទាំងលម្អិត"
+            class="w-8 h-8 rounded-full bg-store-soft hover:bg-amber-100 text-store-ink text-xs font-bold flex items-center justify-center transition"
+          >
+            ✕
+          </button>
+        </div>
+
+        <!-- Scrollable Book Info -->
+        <div id="modal-scroll-body" class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
+          <div class="flex gap-4 items-start">
+            <!-- Full Cover Art Container -->
+            <div id="modal-book-cover" class="w-28 h-40 shrink-0 rounded-xl overflow-hidden book-cover-frame"></div>
+
+            <div class="min-w-0 flex-1 space-y-1.5">
+              <span
+                id="modal-book-category"
+                class="inline-block px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[10px] font-bold"
+              ></span>
+              <h3 id="modal-book-title" class="text-base font-bold text-store-ink leading-snug"></h3>
+              <p id="modal-book-author" class="text-xs text-store-muted font-medium"></p>
+              <div id="modal-book-rating" class="text-xs text-amber-600 font-semibold"></div>
+              <div class="pt-1">
+                <span id="modal-book-price-usd" class="text-lg font-bold text-amber-800"></span>
+                <span id="modal-book-price-khr" class="text-xs font-semibold text-emerald-800 ml-1.5"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metadata Pills -->
+          <div class="grid grid-cols-2 gap-2 text-[11px]">
+            <div class="p-2.5 rounded-2xl bg-store-card border border-store-border">
+              <span class="text-store-muted block">គ្រឹះស្ថានបោះពុម្ព</span>
+              <strong class="text-store-ink">គ្រឹះស្ថានបោះពុម្ព ផ្ទះ កវីជនបទ</strong>
+            </div>
+            <div class="p-2.5 rounded-2xl bg-store-card border border-store-border">
+              <span class="text-store-muted block">ចំនួនទំព័រ</span>
+              <strong id="modal-book-pages" class="text-store-ink"></strong>
+            </div>
+          </div>
+
+          <!-- Format Selector (សៀវភៅបោះពុម្ព / E-Book) -->
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-store-ink">ទម្រង់សៀវភៅ (Format)</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                data-format="សៀវភៅបោះពុម្ព"
+                class="format-btn py-2 px-3 rounded-xl border-2 border-amber-700 bg-amber-50 text-amber-950 text-xs font-bold transition"
+              >
+                📖 សៀវភៅបោះពុម្ព
+              </button>
+              <button
+                type="button"
+                data-format="E-Book (PDF)"
+                class="format-btn py-2 px-3 rounded-xl border border-store-border bg-store-card text-store-muted text-xs font-semibold transition"
+              >
+                📱 E-Book (PDF)
+              </button>
+            </div>
+          </div>
+
+          <!-- Synopsis -->
+          <div class="rounded-2xl bg-store-card border border-store-border p-3.5 space-y-1">
+            <h4 class="text-xs font-bold text-store-ink">សេចក្តីសង្ខេបសៀវភៅ</h4>
+            <p id="modal-book-synopsis" class="font-battambang text-xs text-store-ink/90 leading-relaxed"></p>
+          </div>
+
+          <!-- Quantity Selector -->
+          <div class="flex items-center justify-between p-3 rounded-2xl bg-store-card border border-store-border">
+            <span class="text-xs font-bold text-store-ink">ចំនួនក្បាលត្រូវការ</span>
+            <div class="flex items-center gap-3">
+              <button
+                id="modal-qty-minus"
+                type="button"
+                class="w-8 h-8 rounded-xl bg-store-soft hover:bg-amber-100 text-store-ink font-bold text-sm flex items-center justify-center transition"
+              >
+                -
+              </button>
+              <span id="modal-qty-value" class="text-sm font-bold text-store-ink w-5 text-center">1</span>
+              <button
+                id="modal-qty-plus"
+                type="button"
+                class="w-8 h-8 rounded-xl bg-store-soft hover:bg-amber-100 text-store-ink font-bold text-sm flex items-center justify-center transition"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Action Buttons -->
+        <div class="p-3.5 bg-store-card border-t border-store-border grid grid-cols-2 gap-2.5 shrink-0">
+          <button
+            id="modal-add-cart-btn"
+            type="button"
+            class="py-3 px-3 rounded-2xl bg-amber-700 hover:bg-amber-800 text-white text-xs font-bold shadow-sm transition active:scale-95 flex items-center justify-center gap-1"
+          >
+            <span>+ បន្ថែមចូលកន្ត្រក</span>
+          </button>
+          <a
+            id="modal-telegram-order-btn"
+            href="https://t.me/HengMeyna_RRP"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="py-3 px-3 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold shadow-sm transition active:scale-95 flex items-center justify-center gap-1 text-center"
+          >
+            <span>✈️ បញ្ជាទិញតាម Telegram</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Non-blocking Khmer Toast Message -->
+    <div
+      id="toast-banner"
+      class="hidden fixed sm:absolute bottom-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-2xl bg-slate-900 text-amber-50 text-xs font-semibold shadow-xl whitespace-nowrap pointer-events-none"
+    ></div>
+  </div>
+
+  <script>
+    /**
+     * ផ្ទះ កវីជនបទ (House of Rural Poet) — Mobile-First Khmer Online Bookstore
+     * Complete state management, bespoke SVG book cover art, cart/checkout, Telegram order builder,
+     * wishlist, and localStorage persistence.
+     */
+    (function () {
+      const EXCHANGE_RATE = 4000; // 1 USD = 4,000 KHR
+      const STORAGE_KEY = 'phteah_kavi_chonbot_bookstore_v1';
+
+      // 8 Authentic Khmer Books Catalog
+      const BOOKS = [
+        {
+          id: 'book-1',
+          title: 'ទឹកភ្នែកលួចស្រឡាញ់',
+          author: 'ស្មេរម៉ីណា',
+          category: 'រឿងមនោសញ្ចេតនា',
+          priceUsd: 5.50,
+          rating: 4.9,
+          reviews: 128,
+          pages: '២១៦ ទំព័រ',
+          palette: ['#7F1D1D', '#B45309', '#FDE68A'],
+          motif: 'lotus-rain',
+          synopsis:
+            'ប្រលោមលោកមនោសញ្ចេតនាដ៏លន្លង់លន្លោច ដែលរៀបរាប់ពីការលាក់ទុកក្តីស្រឡាញ់ក្នុងជម្រៅចិត្ត ក្រោមដំណក់ទឹកភ្លៀងនារដូវវស្សា និងការលះបង់ដើម្បីសុភមង្គលមនុស្សជាទីស្រឡាញ់។'
+        },
+        {
+          id: 'book-2',
+          title: 'កម្រងតែងសេចក្តីថ្នាក់ទី១២ ឈានទៅរកនិទ្ទេស A',
+          author: 'ហេង ម៉ីណា',
+          category: 'តែងសេចក្តី',
+          priceUsd: 6.00,
+          rating: 5.0,
+          reviews: 245,
+          pages: '២៨០ ទំព័រ',
+          palette: ['#064E3B', '#047857', '#FCD34D'],
+          motif: 'medal-pen',
+          synopsis:
+            'ប្រមូលផ្តុំគម្រូតែងសេចក្តីសំខាន់ៗសម្រាប់ថ្នាក់ទី១២ គ្រប់ប្រធានបទ អមដោយគន្លឹះរៀបចំគម្រោងតែង ការលើកឧទាហរណ៍អក្សរសិល្ប៍ និងឃ្លាភ្ជាប់សេចក្តីដ៏សម្បូរបែប។'
+        },
+        {
+          id: 'book-3',
+          title: 'វិញ្ញាសាត្រៀមប្រឡងបាក់ឌុប អក្សរសាស្ត្រខ្មែរ',
+          author: 'ក្រុមនិស្សិតអក្សរសាស្ត្រ',
+          category: 'ត្រៀមប្រឡងបាក់ឌុប',
+          priceUsd: 7.00,
+          rating: 4.9,
+          reviews: 194,
+          pages: '៣១២ ទំព័រ',
+          palette: ['#1E3A8A', '#1D4ED8', '#FDE047'],
+          motif: 'exam-scroll',
+          synopsis:
+            'វិញ្ញាសាជ្រើសរើសពិសេសអមដោយអត្រាកំណែលម្អិត ទាំងផ្នែកអត្ថបទអាន វប្បធម៌ទូទៅ វេយ្យាករណ៍ និងតែងសេចក្តី ជួយសិស្សានុសិស្សហ្វឹកហាត់មុនថ្ងៃប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ។'
+        },
+        {
+          id: 'book-4',
+          title: 'ប្រវត្តិសាស្ត្រខ្មែរសង្ខេប និងអរិយធម៌អង្គរ',
+          author: 'បណ្ឌិត វង្ស សុធារ៉ា',
+          category: 'ប្រវត្តិសាស្ត្រ',
+          priceUsd: 8.50,
+          rating: 4.9,
+          reviews: 162,
+          pages: '៣៤០ ទំព័រ',
+          palette: ['#78350F', '#B45309', '#FBBF24'],
+          motif: 'angkor-towers',
+          synopsis:
+            'សិក្សាស្វែងយល់ពីឫសគល់នៃអរិយធម៌ខ្មែរ សម័យនគរភ្នំ ចេនឡា រហូតដល់យុគមាសនៃចក្រភពអង្គរ ស្ថាបត្យកម្មប្រាសាទបុរាណ និងស្នាព្រះហស្តព្រះមហាក្សត្រខ្មែរ។'
+        },
+        {
+          id: 'book-5',
+          title: 'វិភាគអក្សរសិល្ប៍បុរាណ និងទំនើប',
+          author: 'ស្មេរម៉ីណា',
+          category: 'អក្សរសាស្ត្រខ្មែរ',
+          priceUsd: 6.50,
+          rating: 4.8,
+          reviews: 115,
+          pages: '២៥៤ ទំព័រ',
+          palette: ['#581C87', '#7E22CE', '#FDE68A'],
+          motif: 'classic-palm',
+          synopsis:
+            'វិភាគតួអង្គ ឧត្តមគតិរឿង និងតម្លៃអប់រំក្នុងស្នាដៃអក្សរសិល្ប៍ខ្មែរល្បីៗ ដូចជារឿងរាមកេរ្តិ៍ ទុំទាវ ផ្កាស្រពោន កុលាបប៉ៃលិន និងព្រះអាទិត្យថ្មីរះលើផែនដីចាស់។'
+        },
+        {
+          id: 'book-6',
+          title: 'កំណាព្យជីវិត និងគុណមាតាបិតា',
+          author: 'កវីជនបទ',
+          category: 'អក្សរសាស្ត្រខ្មែរ',
+          priceUsd: 4.50,
+          rating: 5.0,
+          reviews: 210,
+          pages: '១៦៨ ទំព័រ',
+          palette: ['#0F766E', '#0D9488', '#FEF08A'],
+          motif: 'rural-sunset',
+          synopsis:
+            'កម្រងកំណាព្យបទពាក្យ៧ បទកាកគតិ និងបទព្រហ្មគីតិ ដែលឆ្លុះបញ្ចាំងពីជីវភាពស្រុកស្រែចម្ការ ទឹកចិត្តកតញ្ញូចំពោះមាតាបិតា និងទស្សនៈអប់រំជីវិត។'
+        },
+        {
+          id: 'book-7',
+          title: 'សិល្បៈនៃការសរសេរតែងសេចក្តីបែបពិភាក្សា',
+          author: 'ហេង ម៉ីណា',
+          category: 'តែងសេចក្តី',
+          priceUsd: 5.00,
+          rating: 4.9,
+          reviews: 143,
+          pages: '១៩៦ ទំព័រ',
+          palette: ['#9A3412', '#C2410C', '#FDE68A'],
+          motif: 'balance-quill',
+          synopsis:
+            'បង្ហាញជំហានច្បាស់លាស់ក្នុងការបកស្រាយមតិស្រប មតិផ្ទុយ និងមតិសំយោគ ព្រមទាំងរបៀបវិភាគប្រធានបទពិភាក្សាឲ្យស៊ីជម្រៅ និងទទួលបានពិន្ទុខ្ពស់។'
+        },
+        {
+          id: 'book-8',
+          title: 'មគ្គុទ្ទេសក៍ត្រៀមប្រឡងបាក់ឌុបគ្រប់មុខវិជ្ជា',
+          author: 'ផ្ទះ កវីជនបទ',
+          category: 'ត្រៀមប្រឡងបាក់ឌុប',
+          priceUsd: 7.50,
+          rating: 4.9,
+          reviews: 176,
+          pages: '៣៦០ ទំព័រ',
+          palette: ['#1E293B', '#B45309', '#FCD34D'],
+          motif: 'compass-star',
+          synopsis:
+            'សៀវភៅរៀបចំផែនការសិក្សា វិធីសាស្ត្រចងចាំមេរៀនរហ័ស សង្ខេបរូបមន្ត និងគន្លឹះគ្រប់គ្រងពេលវេលាក្នុងបន្ទប់ប្រឡងសម្រាប់បេក្ខជនថ្នាក់ទី១២។'
+        }
+      ];
+
+      // Load or initialize persistent state
+      function loadState() {
+        const defaultState = {
+          activeTab: 'shop',
+          selectedCategory: 'ទាំងអស់',
+          searchQuery: '',
+          cart: [
+            { bookId: 'book-2', qty: 1, format: 'សៀវភៅបោះពុម្ព' }
+          ],
+          wishlist: ['book-1', 'book-6'],
+          orders: [],
+          deliveryZone: 'phnom_penh',
+          promoCode: ''
+        };
+
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return defaultState;
+          const parsed = JSON.parse(raw);
+          return {
+            activeTab: ['shop', 'cart', 'saved', 'about'].includes(parsed.activeTab) ? parsed.activeTab : 'shop',
+            selectedCategory: parsed.selectedCategory || 'ទាំងអស់',
+            searchQuery: typeof parsed.searchQuery === 'string' ? parsed.searchQuery : '',
+            cart: Array.isArray(parsed.cart) ? parsed.cart : defaultState.cart,
+            wishlist: Array.isArray(parsed.wishlist) ? parsed.wishlist : defaultState.wishlist,
+            orders: Array.isArray(parsed.orders) ? parsed.orders : [],
+            deliveryZone: parsed.deliveryZone === 'province' ? 'province' : 'phnom_penh',
+            promoCode: typeof parsed.promoCode === 'string' ? parsed.promoCode : ''
+          };
+        } catch (err) {
+          return defaultState;
+        }
+      }
+
+      const state = loadState();
+      let modalBookId = null;
+      let modalQty = 1;
+      let modalFormat = 'សៀវភៅបោះពុម្ព';
+      let savedSubTab = 'wishlist';
+      let toastTimeout = null;
+
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (err) {
+          // Ignore storage quota errors
+        }
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById('toast-banner');
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.remove('hidden');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 2300);
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      // Format USD and Khmer Riel (1 USD = 4,000 KHR)
+      function formatUsd(amount) {
+        return `$${amount.toFixed(2)}`;
+      }
+
+      function toKhmerDigits(numStr) {
+        const khmerNums = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩'];
+        return String(numStr).replace(/\d/g, (d) => khmerNums[Number(d)]);
+      }
+
+      function formatKhr(usdAmount) {
+        const riel = Math.round(usdAmount * EXCHANGE_RATE);
+        const formatted = riel.toLocaleString('en-US');
+        return `${toKhmerDigits(formatted)}៛`;
+      }
+
+      // Generate bespoke artistic SVG/CSS book cover for each title
+      function renderBookCoverSvg(book, compact = true) {
+        const [c1, c2, gold] = book.palette;
+        const motifShapes = {
+          'lotus-rain': `
+            <path d="M50 38c-7 9-7 18 0 26 7-8 7-17 0-26z" fill="${gold}" opacity="0.9"/>
+            <path d="M50 64c-12-3-20 4-23 14 9 1 17-2 23-9 6 7 14 10 23 9-3-10-11-17-23-14z" fill="${gold}" opacity="0.65"/>
+            <line x1="30" y1="24" x2="26" y2="34" stroke="${gold}" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+            <line x1="72" y1="26" x2="68" y2="36" stroke="${gold}" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+          `,
+          'medal-pen': `
+            <circle cx="50" cy="48" r="16" fill="none" stroke="${gold}" stroke-width="2.2"/>
+            <text x="50" y="54" text-anchor="middle" fill="${gold}" font-size="18" font-weight="bold">A+</text>
+            <path d="M38 68 L50 60 L62 68" fill="none" stroke="${gold}" stroke-width="2" stroke-linecap="round"/>
+          `,
+          'exam-scroll': `
+            <rect x="33" y="34" width="34" height="42" rx="4" fill="none" stroke="${gold}" stroke-width="2"/>
+            <line x1="40" y1="44" x2="60" y2="44" stroke="${gold}" stroke-width="2" stroke-linecap="round"/>
+            <line x1="40" y1="53" x2="60" y2="53" stroke="${gold}" stroke-width="2" stroke-linecap="round"/>
+            <path d="M41 64 l4 4 l10 -10" fill="none" stroke="${gold}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          `,
+          'angkor-towers': `
+            <path d="M24 74 L76 74 L76 68 L24 68 Z" fill="${gold}" opacity="0.85"/>
+            <path d="M32 68 L32 52 L37 44 L42 52 L42 68 Z" fill="${gold}" opacity="0.75"/>
+            <path d="M44 68 L44 42 L50 31 L56 42 L56 68 Z" fill="${gold}"/>
+            <path d="M58 68 L58 52 L63 44 L68 52 L68 68 Z" fill="${gold}" opacity="0.75"/>
+          `,
+          'classic-palm': `
+            <rect x="26" y="42" width="48" height="10" rx="5" fill="${gold}" opacity="0.85"/>
+            <rect x="26" y="56" width="48" height="10" rx="5" fill="${gold}" opacity="0.65"/>
+            <circle cx="35" cy="47" r="1.8" fill="${c1}"/>
+            <circle cx="65" cy="47" r="1.8" fill="${c1}"/>
+            <circle cx="50" cy="32" r="5" fill="${gold}"/>
+          `,
+          'rural-sunset': `
+            <circle cx="50" cy="52" r="14" fill="${gold}" opacity="0.9"/>
+            <path d="M22 66 Q38 58 50 66 T78 66 L78 76 L22 76 Z" fill="${gold}" opacity="0.6"/>
+            <path d="M46 42 Q50 36 54 42" fill="none" stroke="#FFF" stroke-width="1.5" stroke-linecap="round"/>
+          `,
+          'balance-quill': `
+            <line x1="50" y1="32" x2="50" y2="72" stroke="${gold}" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="30" y1="42" x2="70" y2="42" stroke="${gold}" stroke-width="2" stroke-linecap="round"/>
+            <path d="M25 54 Q30 60 35 54 Z" fill="${gold}"/>
+            <path d="M65 54 Q70 60 75 54 Z" fill="${gold}"/>
+          `,
+          'compass-star': `
+            <circle cx="50" cy="52" r="18" fill="none" stroke="${gold}" stroke-width="1.8" stroke-dasharray="3 2"/>
+            <polygon points="50,34 54,48 68,52 54,56 50,70 46,56 32,52 46,48" fill="${gold}"/>
+          `
+        };
+
+        return `
+          <div
+            class="w-full h-full relative flex flex-col justify-between p-2.5 select-none"
+            style="background: linear-gradient(145deg, ${c1} 0%, ${c2} 100%);"
+          >
+            <!-- Left spine crease highlight -->
+            <div class="absolute inset-y-0 left-0 w-2 bg-black/25 border-r border-white/15"></div>
+
+            <!-- Top Publisher Tag -->
+            <div class="pl-1.5 flex items-center justify-between">
+              <span class="text-[8px] tracking-wide uppercase font-bold px-1.5 py-0.5 rounded bg-black/25 text-amber-100">
+                ផ្ទះ កវីជនបទ
+              </span>
+            </div>
+
+            <!-- Center Artistic Vector Emblem -->
+            <svg class="w-full ${compact ? 'h-20' : 'h-24'} pl-1" viewBox="0 0 100 95">
+              ${motifShapes[book.motif] || motifShapes['lotus-rain']}
+            </svg>
+
+            <!-- Bottom Title & Author on Cover -->
+            <div class="pl-1.5 space-y-0.5">
+              <p class="font-battambang text-[10px] font-bold text-white leading-tight line-clamp-2 drop-shadow">
+                ${escapeHtml(book.title)}
+              </p>
+              <p class="text-[8.5px] text-amber-200/95 truncate">
+                ${escapeHtml(book.author)}
+              </p>
+            </div>
+          </div>
+        `;
+      }
+
+      // Compute cart totals
+      function calculateCartTotals() {
+        let totalQty = 0;
+        let subtotal = 0;
+
+        state.cart.forEach((entry) => {
+          const book = BOOKS.find((b) => b.id === entry.bookId);
+          if (book) {
+            totalQty += entry.qty;
+            subtotal += book.priceUsd * entry.qty;
+          }
+        });
+
+        // Free Phnom Penh delivery if >= 2 books
+        let deliveryFee = 0;
+        if (totalQty > 0) {
+          if (state.deliveryZone === 'phnom_penh') {
+            deliveryFee = totalQty >= 2 ? 0 : 1.50;
+          } else {
+            deliveryFee = 2.00;
+          }
+        }
+
+        const hasPromo = state.promoCode.trim().toUpperCase() === 'MEYNA15';
+        const discount = hasPromo ? subtotal * 0.15 : 0;
+        const grandTotal = Math.max(0, subtotal - discount + deliveryFee);
+
+        return {
+          totalQty,
+          subtotal,
+          deliveryFee,
+          hasPromo,
+          discount,
+          grandTotal
+        };
+      }
+
+      // Update Cart Badges across Header & Bottom Nav
+      function updateBadges() {
+        const { totalQty } = calculateCartTotals();
+        const headerBadge = document.getElementById('header-cart-badge');
+        const navBadge = document.getElementById('nav-cart-badge');
+
+        if (headerBadge) {
+          headerBadge.textContent = String(totalQty);
+        }
+        if (navBadge) {
+          navBadge.textContent = String(totalQty);
+          navBadge.classList.toggle('hidden', totalQty === 0);
+        }
+
+        const wishCountEl = document.getElementById('wishlist-tab-count');
+        const ordersCountEl = document.getElementById('orders-tab-count');
+        if (wishCountEl) wishCountEl.textContent = toKhmerDigits(state.wishlist.length);
+        if (ordersCountEl) ordersCountEl.textContent = toKhmerDigits(state.orders.length);
+      }
+
+      // Build single Book Card HTML for 2-Column Grid
+      function buildBookCardHtml(book) {
+        const isWished = state.wishlist.includes(book.id);
+
+        return `
+          <article class="rounded-3xl bg-store-card border border-store-border p-2.5 flex flex-col justify-between shadow-2xs hover:border-amber-400 transition">
+            <div>
+              <!-- Cover Art + Heart Button -->
+              <div class="relative aspect-[3/4] w-full rounded-2xl overflow-hidden book-cover-frame mb-2.5">
+                <button
+                  type="button"
+                  data-open-book="${escapeHtml(book.id)}"
+                  class="open-book-trigger w-full h-full block text-left focus:outline-none"
+                  aria-label="មើលព័ត៌មានលម្អិត ${escapeHtml(book.title)}"
+                >
+                  ${renderBookCoverSvg(book, true)}
+                </button>
+
+                <button
+                  type="button"
+                  data-wish-id="${escapeHtml(book.id)}"
+                  aria-label="រក្សាទុកក្នុងចំណូលចិត្ត"
+                  class="toggle-wish-btn absolute top-2 right-2 w-7 h-7 rounded-full bg-white/90 backdrop-blur text-xs flex items-center justify-center shadow transition active:scale-90"
+                >
+                  ${isWished ? '❤️' : '🤍'}
+                </button>
+              </div>
+
+              <!-- Category Badge & Star Rating -->
+              <div class="flex items-center justify-between gap-1 mb-1">
+                <span class="px-2 py-0.5 rounded-full bg-amber-50 text-amber-900 border border-amber-200/70 text-[9.5px] font-bold truncate">
+                  ${escapeHtml(book.category)}
+                </span>
+                <span class="text-[10px] font-semibold text-amber-600 shrink-0">
+                  ★ ${book.rating.toFixed(1)}
+                </span>
+              </div>
+
+              <!-- Title & Author -->
+              <button
+                type="button"
+                data-open-book="${escapeHtml(book.id)}"
+                class="open-book-trigger text-left w-full"
+              >
+                <h3 class="text-xs font-bold text-store-ink leading-snug line-clamp-2 hover:text-amber-800 transition">
+                  ${escapeHtml(book.title)}
+                </h3>
+                <p class="text-[11px] text-store-muted truncate mt-0.5">
+                  ${escapeHtml(book.author)}
+                </p>
+              </button>
+            </div>
+
+            <!-- Price (USD & KHR) + Quick Add Button -->
+            <div class="pt-2.5 mt-2 border-t border-store-border/70 space-y-2">
+              <div class="flex items-baseline justify-between gap-1">
+                <span class="text-xs font-bold text-amber-800">${formatUsd(book.priceUsd)}</span>
+                <span class="text-[10.5px] font-semibold text-emerald-800">${formatKhr(book.priceUsd)}</span>
+              </div>
+              <button
+                type="button"
+                data-quick-add="${escapeHtml(book.id)}"
+                class="quick-add-btn w-full py-2 px-2 rounded-xl bg-amber-700 hover:bg-amber-800 text-white text-[11px] font-bold transition active:scale-95 flex items-center justify-center gap-1"
+              >
+                <span>+ ដាក់កន្ត្រក</span>
+              </button>
+            </div>
+          </article>
+        `;
+      }
+
+      // Render Shop Catalog Grid
+      function renderShop() {
+        const grid = document.getElementById('books-grid');
+        const emptyEl = document.getElementById('shop-empty-state');
+        const countEl = document.getElementById('catalog-count');
+        const headingEl = document.getElementById('catalog-heading');
+        const clearBtn = document.getElementById('shop-clear-search');
+
+        const query = state.searchQuery.trim().toLowerCase();
+        clearBtn.classList.toggle('hidden', query.length === 0);
+
+        const filtered = BOOKS.filter((book) => {
+          const matchCat = state.selectedCategory === 'ទាំងអស់' || book.category === state.selectedCategory;
+          if (!matchCat) return false;
+          if (!query) return true;
+          const haystack = `${book.title} ${book.author} ${book.category} ${book.synopsis}`.toLowerCase();
+          return haystack.includes(query);
+        });
+
+        headingEl.textContent =
+          state.selectedCategory === 'ទាំងអស់'
+            ? 'បញ្ជីសៀវភៅទាំងអស់'
+            : `ប្រភេទ៖ ${state.selectedCategory}`;
+        countEl.textContent = `${toKhmerDigits(filtered.length)} ក្បាល`;
+
+        if (filtered.length === 0) {
+          grid.innerHTML = '';
+          emptyEl.classList.remove('hidden');
+        } else {
+          emptyEl.classList.add('hidden');
+          grid.innerHTML = filtered.map(buildBookCardHtml).join('');
+        }
+
+        // Sync category pill styles
+        document.querySelectorAll('.cat-pill').forEach((pill) => {
+          const active = pill.dataset.cat === state.selectedCategory;
+          pill.className = active
+            ? 'cat-pill px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-amber-700 text-white shadow-xs transition active:scale-95'
+            : 'cat-pill px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap bg-store-card text-store-muted border border-store-border hover:bg-store-soft transition active:scale-95';
+        });
+      }
+
+      // Add Book to Cart
+      function addToCart(bookId, qty = 1, format = 'សៀវភៅបោះពុម្ព') {
+        const book = BOOKS.find((b) => b.id === bookId);
+        if (!book) return;
+
+        const existing = state.cart.find((c) => c.bookId === bookId && c.format === format);
+        if (existing) {
+          existing.qty += qty;
+        } else {
+          state.cart.push({ bookId, qty, format });
+        }
+
+        saveState();
+        updateBadges();
+        renderCart();
+        showToast(`បានដាក់ «${book.title}» ចូលកន្ត្រក!`);
+      }
+
+      // Toggle Wishlist
+      function toggleWishlist(bookId) {
+        const book = BOOKS.find((b) => b.id === bookId);
+        if (!book) return;
+
+        const idx = state.wishlist.indexOf(bookId);
+        if (idx >= 0) {
+          state.wishlist.splice(idx, 1);
+          showToast('បានដកចេញពីបញ្ជីពេញចិត្ត');
+        } else {
+          state.wishlist.unshift(bookId);
+          showToast(`បានរក្សាទុក «${book.title}» ក្នុងចំណូលចិត្ត`);
+        }
+
+        saveState();
+        updateBadges();
+        renderShop();
+        renderSavedView();
+      }
+
+      // Render Cart & Checkout Tab
+      function renderCart() {
+        const emptyEl = document.getElementById('cart-empty-state');
+        const contentEl = document.getElementById('cart-content-wrapper');
+        const clearBtn = document.getElementById('clear-cart-btn');
+        const itemsListEl = document.getElementById('cart-items-list');
+
+        if (state.cart.length === 0) {
+          emptyEl.classList.remove('hidden');
+          contentEl.classList.add('hidden');
+          clearBtn.classList.add('hidden');
+          return;
+        }
+
+        emptyEl.classList.add('hidden');
+        contentEl.classList.remove('hidden');
+        clearBtn.classList.remove('hidden');
+
+        itemsListEl.innerHTML = state.cart
+          .map((item, idx) => {
+            const book = BOOKS.find((b) => b.id === item.bookId);
+            if (!book) return '';
+            const lineTotal = book.priceUsd * item.qty;
+
+            return `
+              <div class="rounded-3xl bg-store-card border border-store-border p-3 flex gap-3 items-center shadow-2xs">
+                <div class="w-14 h-20 rounded-xl overflow-hidden shrink-0 book-cover-frame">
+                  ${renderBookCoverSvg(book, true)}
+                </div>
+
+                <div class="min-w-0 flex-1 space-y-1">
+                  <div class="flex items-start justify-between gap-2">
+                    <h4 class="text-xs font-bold text-store-ink leading-snug line-clamp-2">${escapeHtml(book.title)}</h4>
+                    <button
+                      type="button"
+                      data-cart-remove="${idx}"
+                      aria-label="លុបចេញ"
+                      class="cart-remove-btn text-store-muted hover:text-rose-600 text-xs px-1.5 py-0.5 rounded-lg"
+                    >
+                      🗑️
+                    </button>
+                  </div>
+                  <p class="text-[10.5px] text-store-muted">${escapeHtml(item.format)} • ${formatUsd(book.priceUsd)}</p>
+
+                  <div class="flex items-center justify-between pt-1">
+                    <div class="flex items-center gap-2">
+                      <button
+                        type="button"
+                        data-cart-dec="${idx}"
+                        class="cart-dec-btn w-7 h-7 rounded-lg bg-store-soft hover:bg-amber-100 text-store-ink font-bold text-xs flex items-center justify-center"
+                      >
+                        -
+                      </button>
+                      <span class="text-xs font-bold w-4 text-center">${item.qty}</span>
+                      <button
+                        type="button"
+                        data-cart-inc="${idx}"
+                        class="cart-inc-btn w-7 h-7 rounded-lg bg-store-soft hover:bg-amber-100 text-store-ink font-bold text-xs flex items-center justify-center"
+                      >
+                        +
+                      </button>
+                    </div>
+                    <div class="text-right">
+                      <span class="text-xs font-bold text-amber-800 block">${formatUsd(lineTotal)}</span>
+                      <span class="text-[10px] text-emerald-800 font-medium">${formatKhr(lineTotal)}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          })
+          .join('');
+
+        // Update delivery zone buttons
+        document.querySelectorAll('.zone-btn').forEach((btn) => {
+          const active = btn.dataset.zone === state.deliveryZone;
+          btn.className = active
+            ? 'zone-btn p-3 rounded-2xl border-2 border-amber-700 bg-amber-50/70 text-left transition active:scale-98'
+            : 'zone-btn p-3 rounded-2xl border border-store-border bg-store-cream text-left transition active:scale-98';
+        });
+
+        const totals = calculateCartTotals();
+        const ppHint = document.getElementById('pp-fee-hint');
+        if (ppHint) {
+          ppHint.textContent =
+            totals.totalQty >= 2
+              ? 'ឥតគិតថ្លៃ ($0.00) ព្រោះទិញ ≥ ២ ក្បាល!'
+              : '$1.50 (ឥតគិតថ្លៃ ≥ ២ ក្បាល)';
+        }
+
+        const promoInput = document.getElementById('promo-input');
+        const promoMsg = document.getElementById('promo-status-msg');
+        if (promoInput && document.activeElement !== promoInput) {
+          promoInput.value = state.promoCode;
+        }
+        if (promoMsg) {
+          if (totals.hasPromo) {
+            promoMsg.textContent = '✓ បានអនុវត្តកូដ MEYNA15 (បញ្ចុះតម្លៃ 15% រួចរាល់)';
+            promoMsg.classList.remove('hidden');
+          } else {
+            promoMsg.classList.add('hidden');
+          }
+        }
+
+        document.getElementById('summary-book-qty').textContent = toKhmerDigits(totals.totalQty);
+        document.getElementById('summary-subtotal').textContent = formatUsd(totals.subtotal);
+        document.getElementById('summary-delivery').textContent =
+          totals.deliveryFee === 0 ? 'ឥតគិតថ្លៃ ($0.00)' : formatUsd(totals.deliveryFee);
+
+        const discountRow = document.getElementById('summary-discount-row');
+        if (totals.hasPromo) {
+          discountRow.classList.remove('hidden');
+          document.getElementById('summary-discount').textContent = `-${formatUsd(totals.discount)}`;
+        } else {
+          discountRow.classList.add('hidden');
+        }
+
+        document.getElementById('summary-total-usd').textContent = formatUsd(totals.grandTotal);
+        document.getElementById('summary-total-khr').textContent = formatKhr(totals.grandTotal);
+      }
+
+      // Render Wishlist & Order History Tab
+      function renderSavedView() {
+        const wishGrid = document.getElementById('wishlist-grid');
+        const wishEmpty = document.getElementById('wishlist-empty-state');
+        const wishedBooks = BOOKS.filter((b) => state.wishlist.includes(b.id));
+
+        if (wishedBooks.length === 0) {
+          wishGrid.innerHTML = '';
+          wishEmpty.classList.remove('hidden');
+        } else {
+          wishEmpty.classList.add('hidden');
+          wishGrid.innerHTML = wishedBooks.map(buildBookCardHtml).join('');
+        }
+
+        const ordersList = document.getElementById('orders-list');
+        const ordersEmpty = document.getElementById('orders-empty-state');
+
+        if (state.orders.length === 0) {
+          ordersList.innerHTML = '';
+          ordersEmpty.classList.remove('hidden');
+        } else {
+          ordersEmpty.classList.add('hidden');
+          ordersList.innerHTML = state.orders
+            .map(
+              (ord) => `
+              <div class="rounded-3xl bg-store-card border border-store-border p-4 space-y-2.5 shadow-2xs">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-xs font-mono font-bold text-amber-900">${escapeHtml(ord.id)}</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[10.5px] font-bold">
+                    🚚 ${escapeHtml(ord.status)}
+                  </span>
+                </div>
+                <p class="text-[11px] text-store-muted">កាលបរិច្ឆេទ៖ ${escapeHtml(ord.date)} • ទូទាត់៖ ${escapeHtml(ord.paymentMethod)}</p>
+                <div class="p-2.5 rounded-2xl bg-store-cream border border-store-border/80 space-y-1 text-xs">
+                  ${ord.items
+                    .map(
+                      (it) =>
+                        `<div class="flex justify-between gap-2">
+                          <span class="truncate text-store-ink">• ${escapeHtml(it.title)} (${escapeHtml(it.format)})</span>
+                          <span class="font-semibold shrink-0">x${it.qty}</span>
+                        </div>`
+                    )
+                    .join('')}
+                </div>
+                <div class="flex items-center justify-between pt-1 border-t border-store-border/70">
+                  <span class="text-xs text-store-muted">អតិថិជន៖ ${escapeHtml(ord.customerName)}</span>
+                  <div class="text-right">
+                    <span class="text-xs font-bold text-amber-800">${formatUsd(ord.totalUsd)}</span>
+                    <span class="text-[11px] font-semibold text-emerald-800 ml-1">(${formatKhr(ord.totalUsd)})</span>
+                  </div>
+                </div>
+              </div>
+            `
+            )
+            .join('');
+        }
+      }
+
+      // Switch Main Bottom Navigation Tab
+      function switchMainTab(tabName) {
+        if (!['shop', 'cart', 'saved', 'about'].includes(tabName)) return;
+        state.activeTab = tabName;
+        saveState();
+
+        ['shop', 'cart', 'saved', 'about'].forEach((name) => {
+          document.getElementById(`view-${name}`).classList.toggle('hidden', name !== tabName);
+        });
+
+        document.querySelectorAll('.bottom-nav-btn').forEach((btn) => {
+          const active = btn.dataset.nav === tabName;
+          btn.className = active
+            ? 'bottom-nav-btn relative flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl text-amber-800 bg-amber-100/75 font-bold transition active:scale-95'
+            : 'bottom-nav-btn relative flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl text-store-muted hover:text-store-ink font-medium transition active:scale-95';
+        });
+
+        const viewport = document.getElementById('main-viewport');
+        if (viewport) viewport.scrollTop = 0;
+
+        if (tabName === 'cart') renderCart();
+        if (tabName === 'saved') renderSavedView();
+      }
+
+      // Open Book Detail Bottom Sheet Modal
+      function openBookModal(bookId) {
+        const book = BOOKS.find((b) => b.id === bookId);
+        if (!book) return;
+
+        modalBookId = book.id;
+        modalQty = 1;
+        modalFormat = 'សៀវភៅបោះពុម្ព';
+
+        document.getElementById('modal-book-cover').innerHTML = renderBookCoverSvg(book, false);
+        document.getElementById('modal-book-category').textContent = book.category;
+        document.getElementById('modal-book-title').textContent = book.title;
+        document.getElementById('modal-book-author').textContent = `អ្នកនិពន្ធ៖ ${book.author}`;
+        document.getElementById('modal-book-rating').textContent = `★★★★★ ${book.rating.toFixed(1)} (${toKhmerDigits(book.reviews)} ការវាយតម្លៃ)`;
+        document.getElementById('modal-book-price-usd').textContent = formatUsd(book.priceUsd);
+        document.getElementById('modal-book-price-khr').textContent = `/ ${formatKhr(book.priceUsd)}`;
+        document.getElementById('modal-book-pages').textContent = book.pages;
+        document.getElementById('modal-book-synopsis').textContent = book.synopsis;
+        document.getElementById('modal-qty-value').textContent = '1';
+
+        syncModalFormatAndTelegram();
+
+        document.getElementById('book-modal-backdrop').classList.remove('hidden');
+        document.getElementById('modal-scroll-body').scrollTop = 0;
+      }
+
+      function syncModalFormatAndTelegram() {
+        const book = BOOKS.find((b) => b.id === modalBookId);
+        if (!book) return;
+
+        document.querySelectorAll('.format-btn').forEach((btn) => {
+          const active = btn.dataset.format === modalFormat;
+          btn.className = active
+            ? 'format-btn py-2 px-3 rounded-xl border-2 border-amber-700 bg-amber-50 text-amber-950 text-xs font-bold transition'
+            : 'format-btn py-2 px-3 rounded-xl border border-store-border bg-store-card text-store-muted text-xs font-semibold transition';
+        });
+
+        const total = book.priceUsd * modalQty;
+        const msg = [
+          'សួស្តីបណ្ណាគារ ផ្ទះ កវីជនបទ! ខ្ញុំចង់បញ្ជាទិញសៀវភៅ៖',
+          `• ចំណងជើង៖ ${book.title}`,
+          `• ទម្រង់៖ ${modalFormat}`,
+          `• ចំនួន៖ ${modalQty} ក្បាល`,
+          `• តម្លៃសរុប៖ ${formatUsd(total)} (${formatKhr(total)})`
+        ].join('\n');
+
+        const tgLink = document.getElementById('modal-telegram-order-btn');
+        tgLink.href = `https://t.me/HengMeyna_RRP?text=${encodeURIComponent(msg)}`;
+      }
+
+      function closeBookModal() {
+        modalBookId = null;
+        document.getElementById('book-modal-backdrop').classList.add('hidden');
+      }
+
+      // Copy helper using execCommand fallback for sandboxed iframes
+      function copyTextSafely(text) {
+        const area = document.createElement('textarea');
+        area.value = text;
+        area.setAttribute('readonly', '');
+        area.style.position = 'absolute';
+        area.style.left = '-9999px';
+        document.body.appendChild(area);
+        area.select();
+        try {
+          document.execCommand('copy');
+          showToast('បានចម្លងវិក្កយបត្ររួចរាល់!');
+        } catch (err) {
+          showToast('មិនអាចចម្លងដោយស្វ័យប្រវត្តិបានទេ');
+        } finally {
+          document.body.removeChild(area);
+        }
+      }
+
+      // Bind all interactive DOM events
+      function bindEvents() {
+        // Header Quick Cart
+        document.getElementById('header-cart-btn').addEventListener('click', () => {
+          switchMainTab('cart');
+        });
+
+        // Bottom Navigation
+        document.querySelectorAll('.bottom-nav-btn').forEach((btn) => {
+          btn.addEventListener('click', () => switchMainTab(btn.dataset.nav));
+        });
+
+        // Shop Search
+        const searchInput = document.getElementById('shop-search-input');
+        searchInput.value = state.searchQuery;
+        searchInput.addEventListener('input', (e) => {
+          state.searchQuery = e.target.value;
+          saveState();
+          renderShop();
+        });
+
+        document.getElementById('shop-clear-search').addEventListener('click', () => {
+          state.searchQuery = '';
+          searchInput.value = '';
+          saveState();
+          renderShop();
+        });
+
+        // Category Filter Pills
+        document.querySelectorAll('.cat-pill').forEach((pill) => {
+          pill.addEventListener('click', () => {
+            state.selectedCategory = pill.dataset.cat;
+            saveState();
+            renderShop();
+          });
+        });
+
+        document.getElementById('shop-reset-btn').addEventListener('click', () => {
+          state.selectedCategory = 'ទាំងអស់';
+          state.searchQuery = '';
+          searchInput.value = '';
+          saveState();
+          renderShop();
+        });
+
+        // Banner Apply Promo Code MEYNA15
+        document.getElementById('apply-banner-promo-btn').addEventListener('click', () => {
+          state.promoCode = 'MEYNA15';
+          saveState();
+          showToast('បានបញ្ចូលកូដបញ្ចុះតម្លៃ MEYNA15 (15%)!');
+          switchMainTab('cart');
+        });
+
+        // Delegated clicks for Book Cards (Open Detail, Quick Add, Toggle Wishlist)
+        document.getElementById('app-shell').addEventListener('click', (e) => {
+          const openTrigger = e.target.closest('.open-book-trigger');
+          if (openTrigger && openTrigger.dataset.openBook) {
+            openBookModal(openTrigger.dataset.openBook);
+            return;
+          }
+
+          const quickAdd = e.target.closest('.quick-add-btn');
+          if (quickAdd && quickAdd.dataset.quickAdd) {
+            addToCart(quickAdd.dataset.quickAdd, 1, 'សៀវភៅបោះពុម្ព');
+            return;
+          }
+
+          const wishBtn = e.target.closest('.toggle-wish-btn');
+          if (wishBtn && wishBtn.dataset.wishId) {
+            toggleWishlist(wishBtn.dataset.wishId);
+            return;
+          }
+
+          // Cart item controls
+          const incBtn = e.target.closest('.cart-inc-btn');
+          if (incBtn) {
+            const idx = Number(incBtn.dataset.cartInc);
+            if (state.cart[idx]) {
+              state.cart[idx].qty += 1;
+              saveState();
+              updateBadges();
+              renderCart();
+            }
+            return;
+          }
+
+          const decBtn = e.target.closest('.cart-dec-btn');
+          if (decBtn) {
+            const idx = Number(decBtn.dataset.cartDec);
+            if (state.cart[idx]) {
+              if (state.cart[idx].qty > 1) {
+                state.cart[idx].qty -= 1;
+              } else {
+                state.cart.splice(idx, 1);
+              }
+              saveState();
+              updateBadges();
+              renderCart();
+            }
+            return;
+          }
+
+          const remBtn = e.target.closest('.cart-remove-btn');
+          if (remBtn) {
+            const idx = Number(remBtn.dataset.cartRemove);
+            state.cart.splice(idx, 1);
+            saveState();
+            updateBadges();
+            renderCart();
+            showToast('បានលុបសៀវភៅចេញពីកន្ត្រក');
+          }
+        });
+
+        // Cart Tab Controls
+        document.getElementById('cart-go-shop-btn').addEventListener('click', () => switchMainTab('shop'));
+
+        document.getElementById('clear-cart-btn').addEventListener('click', () => {
+          state.cart = [];
+          saveState();
+          updateBadges();
+          renderCart();
+          showToast('បានសម្អាតកន្ត្រកទំនិញ');
+        });
+
+        document.querySelectorAll('.zone-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            state.deliveryZone = btn.dataset.zone;
+            saveState();
+            renderCart();
+          });
+        });
+
+        document.getElementById('apply-promo-btn').addEventListener('click', () => {
+          const code = document.getElementById('promo-input').value.trim().toUpperCase();
+          state.promoCode = code;
+          saveState();
+          renderCart();
+          if (code === 'MEYNA15') {
+            showToast('អបអរសាទរ! ទទួលបានការបញ្ចុះតម្លៃ 15%');
+          } else if (code === '') {
+            showToast('បានដកកូដបញ្ចុះតម្លៃចេញ');
+          } else {
+            showToast('កូដមិនត្រឹមត្រូវទេ (សូមប្រើ៖ MEYNA15)');
+          }
+        });
+
+        // Checkout Form Submission
+        document.getElementById('checkout-form').addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (state.cart.length === 0) return;
+
+          const customerName = document.getElementById('cust-name').value.trim();
+          const customerPhone = document.getElementById('cust-phone').value.trim();
+          const customerAddress = document.getElementById('cust-address').value.trim();
+          const paymentInput = document.querySelector('input[name="paymentMethod"]:checked');
+          const paymentMethod = paymentInput ? paymentInput.value : 'ABA KHQR';
+
+          if (!customerName || !customerPhone || !customerAddress) {
+            showToast('សូមបំពេញឈ្មោះ លេខទូរស័ព្ទ និងអាសយដ្ឋាន!');
+            return;
+          }
+
+          const totals = calculateCartTotals();
+          const orderItems = state.cart.map((entry) => {
+            const book = BOOKS.find((b) => b.id === entry.bookId);
+            return {
+              bookId: entry.bookId,
+              title: book ? book.title : 'សៀវភៅ',
+              format: entry.format,
+              qty: entry.qty,
+              priceUsd: book ? book.priceUsd : 0
+            };
+          });
+
+          const orderId = `PKC-${String(Date.now()).slice(-6)}`;
+          const nowStr = new Date().toLocaleDateString('km-KH', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          });
+
+          const newOrder = {
+            id: orderId,
+            date: nowStr,
+            customerName,
+            customerPhone,
+            customerAddress,
+            deliveryZone: state.deliveryZone === 'phnom_penh' ? 'រាជធានីភ្នំពេញ' : 'តាមបណ្តាខេត្ត',
+            paymentMethod,
+            items: orderItems,
+            subtotalUsd: totals.subtotal,
+            deliveryUsd: totals.deliveryFee,
+            discountUsd: totals.discount,
+            totalUsd: totals.grandTotal,
+            status: 'កំពុងរៀបចំដឹកជញ្ជូន'
+          };
+
+          state.orders.unshift(newOrder);
+          state.cart = [];
+          saveState();
+          updateBadges();
+          renderCart();
+          renderSavedView();
+
+          // Build clean Khmer Receipt & Telegram pre-filled link
+          const receiptLines = [
+            `📚 វិក្កយបត្របញ្ជាទិញ — ផ្ទះ កវីជនបទ`,
+            `លេខកូដបញ្ជាទិញ៖ ${newOrder.id}`,
+            `អតិថិជន៖ ${newOrder.customerName} (${newOrder.customerPhone})`,
+            `ទីតាំង៖ ${newOrder.deliveryZone} — ${newOrder.customerAddress}`,
+            `--------------------------------`,
+            ...newOrder.items.map(
+              (it, i) => `${i + 1}. ${it.title} [${it.format}] x${it.qty} = ${formatUsd(it.priceUsd * it.qty)}`
+            ),
+            `--------------------------------`,
+            `ថ្លៃដឹកជញ្ជូន៖ ${newOrder.deliveryUsd === 0 ? 'ឥតគិតថ្លៃ ($0.00)' : formatUsd(newOrder.deliveryUsd)}`,
+            ...(newOrder.discountUsd > 0 ? [`បញ្ចុះតម្លៃ (MEYNA15)៖ -${formatUsd(newOrder.discountUsd)}`] : []),
+            `សរុបត្រូវទូទាត់៖ ${formatUsd(newOrder.totalUsd)} (${formatKhr(newOrder.totalUsd)})`,
+            `ការទូទាត់៖ ${newOrder.paymentMethod}`
+          ];
+          const receiptText = receiptLines.join('\n');
+
+          document.getElementById('receipt-order-id').textContent = newOrder.id;
+          document.getElementById('receipt-summary-text').textContent = receiptText;
+          document.getElementById('receipt-telegram-link').href =
+            `https://t.me/HengMeyna_RRP?text=${encodeURIComponent(receiptText)}`;
+
+          const receiptCard = document.getElementById('order-receipt-card');
+          receiptCard.classList.remove('hidden');
+          receiptCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+          showToast('បញ្ជាទិញបានជោគជ័យ! សូមផ្ញើទៅ Telegram');
+        });
+
+        document.getElementById('copy-receipt-btn').addEventListener('click', () => {
+          const text = document.getElementById('receipt-summary-text').textContent;
+          copyTextSafely(text);
+        });
+
+        // Book Detail Modal Controls
+        document.getElementById('close-book-modal-btn').addEventListener('click', closeBookModal);
+        document.getElementById('book-modal-backdrop').addEventListener('click', (e) => {
+          if (e.target.id === 'book-modal-backdrop') closeBookModal();
+        });
+
+        document.querySelectorAll('.format-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            modalFormat = btn.dataset.format;
+            syncModalFormatAndTelegram();
+          });
+        });
+
+        document.getElementById('modal-qty-minus').addEventListener('click', () => {
+          if (modalQty > 1) {
+            modalQty -= 1;
+            document.getElementById('modal-qty-value').textContent = String(modalQty);
+            syncModalFormatAndTelegram();
+          }
+        });
+
+        document.getElementById('modal-qty-plus').addEventListener('click', () => {
+          modalQty += 1;
+          document.getElementById('modal-qty-value').textContent = String(modalQty);
+          syncModalFormatAndTelegram();
+        });
+
+        document.getElementById('modal-add-cart-btn').addEventListener('click', () => {
+          if (!modalBookId) return;
+          addToCart(modalBookId, modalQty, modalFormat);
+          closeBookModal();
+        });
+
+        // Saved / Orders Sub-tabs
+        const wishTabBtn = document.getElementById('subtab-wishlist-btn');
+        const ordersTabBtn = document.getElementById('subtab-orders-btn');
+        const wishSubview = document.getElementById('subview-wishlist');
+        const ordersSubview = document.getElementById('subview-orders');
+
+        function setSavedSubTab(sub) {
+          savedSubTab = sub;
+          const isWish = sub === 'wishlist';
+          wishSubview.classList.toggle('hidden', !isWish);
+          ordersSubview.classList.toggle('hidden', isWish);
+
+          wishTabBtn.className = isWish
+            ? 'py-2 px-3 rounded-xl bg-store-card text-amber-900 text-xs font-bold shadow-2xs transition'
+            : 'py-2 px-3 rounded-xl text-store-muted text-xs font-semibold transition';
+
+          ordersTabBtn.className = !isWish
+            ? 'py-2 px-3 rounded-xl bg-store-card text-amber-900 text-xs font-bold shadow-2xs transition'
+            : 'py-2 px-3 rounded-xl text-store-muted text-xs font-semibold transition';
+        }
+
+        wishTabBtn.addEventListener('click', () => setSavedSubTab('wishlist'));
+        ordersTabBtn.addEventListener('click', () => setSavedSubTab('orders'));
+      }
+
+      // Initialize App
+      bindEvents();
+      updateBadges();
+      renderShop();
+      renderCart();
+      renderSavedView();
+      switchMainTab(state.activeTab);
+    })();
+  </script>
+</body>
+</html>
